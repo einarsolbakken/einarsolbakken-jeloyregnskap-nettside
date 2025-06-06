@@ -1,8 +1,8 @@
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+body {
   scroll-behavior: smooth;
-  margin: 0; 
+}
+html {
+  scroll-behavior: smooth;
 }
 
 @keyframes fadeInUp {
