@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeløy Regnskap</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONT -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="images/tabLogo.svg" />
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Egne stiler -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body id="home" class="bg-white text-gray-900 font-sans scroll-smooth">
+    <!-- Header -->
+    <header class="sticky top-0 bg-white shadow-md z-50">
+      <div
+        class="max-w-7xl mx-auto flex justify-between items-center px-6 py-6"
+      >
+        <!-- Logo (klikkbar) -->
+        <a href="#home" class="flex items-center space-x-2" id="header-logo">
+          <svg
+            id="header-logo-anim"
+            width="48"
+            height="48"
+            viewBox="0 0 160 160"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-12 h-12 md:w-16 md:h-16"
+          >
+            <rect
+              id="header-square1"
+              width="100"
+              height="100"
+              rx="6"
+              ry="6"
+              stroke="#f78f41"
+              stroke-width="3"
+              fill="none"
+            />
+            <rect
+              id="header-square2"
+              width="100"
+              height="100"
+              rx="6"
+              ry="6"
+              stroke="#0066a1"
+              stroke-width="3"
+              fill="none"
+            />
+            <rect
+              id="header-square3"
+              width="100"
+              height="100"
+              rx="6"
+              ry="6"
+              stroke="#f78f41"
+              stroke-width="3"
+              fill="none"
+            />
+          </svg>
+          <span class="text-xl md:text-2xl font-semibold hidden sm:inline"
+            >Jeløy Regnskap</span
+          >
+        </a>
+
+        <!-- Desktop-nav -->
+        <nav class="hidden md:flex space-x-8 text-base md:text-lg font-medium">
+          <a
+            href="#home"
+            class="transition-all duration-200 hover:text-[#0066a1] hover:-translate-y-1"
+          >
+            Home
+          </a>
+          <a
+            href="#tjenester"
+            class="transition-all duration-200 hover:text-[#0066a1] hover:-translate-y-1"
+          >
+            Tjenester
+          </a>
+          <a
+            href="#omoss"
+            class="transition-all duration-200 hover:text-[#0066a1] hover:-translate-y-1"
+          >
+            Om oss
+          </a>
+          <a
+            href="#kontakt"
+            class="transition-all duration-200 hover:text-[#0066a1] hover:-translate-y-1"
+          >
+            Kontakt
+          </a>
+        </nav>
+
+        <!-- Mobilmeny-knapp -->
+        <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">
+          ☰
+        </button>
+
+        <!-- Mobilmeny -->
+        <div
+          id="mobile-menu"
+          class="absolute top-full right-6 mt-2 bg-white shadow-lg rounded-md w-48 py-4 px-6 hidden flex-col space-y-4 text-base font-medium"
+        >
+          <a href="#home" class="hover:text-[#0066a1]">Hjem</a>
+          <a href="#tjenester" class="hover:text-[#0066a1]">Tjenester</a>
+          <a href="#omoss" class="hover:text-[#0066a1]">Om oss</a>
+          <a href="#kontakt" class="hover:text-[#0066a1]">Kontakt</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-gray-50 to-white px-6 py-20 md:py-32">
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:justify-between gap-12"
+      >
+        <!-- Tekstinnhold -->
+        <div class="max-w-2xl text-center md:text-left">
+          <h1
+            class="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight text-gray-900 mb-6 tracking-tight"
+          >
+            JELØY REGNSKAP AS
+          </h1>
+
+          <p
+            class="text-base sm:text-lg md:text-xl text-gray-700 mb-5 leading-relaxed"
+          >
+            Trenger du en regnskapsfører som kjenner deg og din virksomhet?
+            Jeløy Regnskap AS tilbyr
+            <strong class="text-black font-semibold"
+              >personlig oppfølging</strong
+            >, raske svar og solid kompetanse. Vi hjelper deg med
+            <strong class="text-black font-semibold"
+              >fakturering, bokføring, lønn og årsoppgjør</strong
+            >
+            – alt med skybaserte løsninger og effektiv arbeidsflyt.
+          </p>
+
+          <p
+            class="text-base sm:text-lg md:text-xl text-gray-700 mb-5 leading-relaxed"
+          >
+            Med oss på laget får du mer tid til å fokusere på det du gjør best.
+            Vi tilbyr også
+            <strong class="text-black font-semibold"
+              >økonomisk rådgivning</strong
+            >
+            til dine behov.
+          </p>
+
+          <p
+            class="text-base sm:text-lg md:text-xl text-gray-700 mb-5 leading-relaxed"
+          >
+            Vi vet at ingen bedrifter er like. Derfor tilpasser vi våre
+            tjenester etter dine ønsker – enten du driver enkeltpersonforetak,
+            liten bedrift eller større selskap.
+          </p>
+
+          <a
+            href="#omoss"
+            class="bg-brandBlue text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-800 transition-all duration-300 text-base sm:text-lg font-medium inline-block"
+          >
+            Les mer
+          </a>
+        </div>
+
+        <!-- Logo-animasjon: skjules på mobil -->
+        <div class="hidden md:flex justify-end items-center md:items-start">
+          <svg
+            id="logo-anim"
+            width="160"
+            height="160"
+            viewBox="0 0 160 160"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-[300px] h-[300px] md:w-[340px] md:h-[340px]"
+          >
+            <rect
+              id="square1"
+              width="100"
+              height="100"
+              rx="6"
+              ry="6"
+              stroke="#f78f41"
+              stroke-width="3"
+              fill="none"
+            />
+            <rect
+              id="square2"
+              width="100"
+              height="100"
+              rx="6"
+              ry="6"
+              stroke="#0066a1"
+              stroke-width="3"
+              fill="none"
+            />
+            <rect
+              id="square3"
+              width="100"
+              height="100"
+              rx="6"
+              ry="6"
+              stroke="#f78f41"
+              stroke-width="3"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hvorfor Jeløy Regnskap -->
+    <section class="bg-gray-50 py-24 px-6 md:px-20" id="hvorfor">
+      <div class="max-w-7xl mx-auto bg-white rounded-xl p-8 md:p-16 shadow-md">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <!-- Bilde først på desktop, men sist på mobil -->
+          <div class="order-2 md:order-1 flex justify-center">
+            <img
+              src="images/LogoPc.png"
+              alt="Logo på PC-skjerm"
+              class="w-3/4 max-w-xs md:max-w-md"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+            />
+          </div>
+
+          <!-- Tekst: alltid til høyre på desktop, over på mobil -->
+          <div class="order-1 md:order-2">
+            <h2 class="text-3xl font-bold mb-6 text-center md:text-left">
+              Hvorfor Jeløy Regnskap?
+            </h2>
+            <p class="mb-4">
+              Vi bruker det <strong>skybaserte</strong> regnskapssystemet
+              <strong>PowerOfficeGo</strong>.
+            </p>
+            <p class="mb-4">
+              Med regnskapet i skyen, slipper du å holde orden på papirer og
+              kvitteringer.
+            </p>
+            <p class="mb-4">
+              Scan inn kvitteringer direkte på telefonen, og la oss ta oss av
+              resten.
+            </p>
+            <p class="mb-4">
+              Mindre tid på regnskap, betyr mer tid på drift av bedriften.
+            </p>
+            <p class="font-semibold mt-6">
+              La oss gjøre hverdagen din lettere!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tjenester -->
+    <section
+      id="tjenester"
+      class="scroll-mt-64 py-20 px-4 max-w-7xl mx-auto"
+      data-aos="fade-up"
+    >
+      <h2 class="text-3xl font-semibold text-center mb-12">Våre tjenester</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- REGNSKAP -->
+        <div class="p-6 border rounded-lg bg-white shadow-md space-y-4">
+          <h3 class="text-2xl font-bold text-blue-900">Regnskap</h3>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-paper-plane text-blue-400 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Fakturering</h4>
+                <p class="text-sm text-gray-600">
+                  Du kan fakturere selv, eller vi kan gjøre det for deg.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-book-open text-green-400 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Bokføring</h4>
+                <p class="text-sm text-gray-600">
+                  Vi foretar løpende bokføring.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-university text-purple-400 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">OCR/Remittering</h4>
+                <p class="text-sm text-gray-600">
+                  Du oppretter en avtale med banken.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-file-invoice-dollar text-yellow-400 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">MVA-rapportering</h4>
+                <p class="text-sm text-gray-600">
+                  Vi rapporterer korrekt og til rett tid.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-chart-line text-pink-400 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Budsjettering</h4>
+                <p class="text-sm text-gray-600">
+                  Vi hjelper deg å lage budsjett for din virksomhet.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-chart-pie text-indigo-400 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Rapporter</h4>
+                <p class="text-sm text-gray-600">
+                  Vi utarbeider oversiktlige rapporter for din økonomi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ÅRSOPPGJØR -->
+        <div class="p-6 border rounded-lg bg-white shadow-md space-y-4">
+          <h3 class="text-2xl font-bold text-blue-900">Årsoppgjør</h3>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-file-alt text-green-500 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Skattemelding</h4>
+                <p class="text-sm text-gray-600">
+                  Vi utarbeider skattemelding og ligningspapirer og leverer i
+                  tide.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-clipboard-list text-yellow-500 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Årsregnskap</h4>
+                <p class="text-sm text-gray-600">
+                  Vi utarbeider årsregnskap med noter og sender til Brønnøysund.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LØNN -->
+        <div class="p-6 border rounded-lg bg-white shadow-md space-y-4">
+          <h3 class="text-2xl font-bold text-blue-900">Lønn</h3>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-user-friends text-purple-500 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Fastlønn / Timelønn</h4>
+                <p class="text-sm text-gray-600">
+                  Vi håndterer faste lønninger og timelønn med korrekt
+                  utbetaling.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-paperclip text-blue-500 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">A-melding</h4>
+                <p class="text-sm text-gray-600">
+                  Vi sørger for korrekt innrapportering hver måned.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-dollar-sign text-green-500 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Terminoppgjør</h4>
+                <p class="text-sm text-gray-600">
+                  Vi beregner og rapporterer forskuddstrekk og
+                  arbeidsgiveravgift.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Om oss -->
+    <section
+      id="omoss"
+      class="scroll-mt-64 py-20 bg-gray-100 px-6 relative"
+      data-aos="fade-up"
+    >
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold mb-6">Om oss</h2>
+        <p class="text-lg leading-relaxed">
+          Jeløy Regnskap AS er et autorisert regnskapsførerselskap, med kontorer
+          i Krossern på Jeløya. Selskapet er familieeid og har bygget opp lang
+          erfaring innen regnskap og økonomi.
+        </p>
+        <p class="text-lg leading-relaxed mt-4">
+          I Jeløy Regnskap tror vi på tette relasjoner, høy tilgjengelighet og
+          løsninger som gjør det enkelt for kundene våre å holde oversikt over
+          økonomien. Enten du driver et lite enkeltpersonforetak eller en større
+          bedrift, tilpasser vi våre tjenester til dine behov.
+        </p>
+      </div>
+
+      <!-- Avatar med AOS animasjon og absolutt plassering -->
+      <div
+        class="hidden md:block absolute right-0 top-1 transform -translate-y-2/3 translate-x-1/2"
+        data-aos="fade-left"
+      >
+        <a
+          href="https://www.facebook.com/profile.php?id=61577072792093"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="images/avatar.png"
+            alt="Ansatt-avatar"
+            class="w-48 md:w-64 h-auto rounded-full border border-gray-300 shadow-md hover:scale-105 transition-transform duration-300"
+          />
+        </a>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section
+      id="kontakt"
+      class="scroll-mt-64 py-20 px-6 max-w-3xl mx-auto"
+      data-aos="fade-up"
+    >
+      <h2 class="text-3xl font-semibold text-center mb-6">Kontakt oss</h2>
+
+      <form
+        id="contactForm"
+        action="https://formsubmit.co/einar.solbakken@me.com"
+        method="POST"
+        class="space-y-4"
+      >
+        <input type="hidden" name="_captcha" value="false" />
+        <input
+          type="text"
+          name="name"
+          placeholder="Navn"
+          required
+          class="w-full border p-3 rounded-md"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="E-post"
+          required
+          class="w-full border p-3 rounded-md"
+        />
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Fortell oss hva vi kan hjelpe deg med!"
+          required
+          class="w-full border p-3 rounded-md"
+        ></textarea>
+        <button
+          type="submit"
+          class="bg-brandBlue text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-800 transition-all duration-300 text-base sm:text-lg font-medium inline-block"
+        >
+          Send melding
+        </button>
+      </form>
+
+      <div
+        id="confirmationMessage"
+        class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-md text-center"
+      >
+        Takk! Vi har mottatt meldingen din og kontakter deg snart.
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-10 text-sm text-gray-500">
+      <div class="text-center text-sm text-gray-700 mb-4">
+        <p>Krossern 18, 1513 Moss</p>
+        <p>
+          Telefon:
+          <a href="tel:93086982" class="font-semibold hover:underline"
+            >930 86 982</a
+          >
+        </p>
+      </div>
+
+      © 2025 Jeløy Regnskap AS · Org.nr. 830 129 952
+    </footer>
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
