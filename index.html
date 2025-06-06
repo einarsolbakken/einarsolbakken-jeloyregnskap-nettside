@@ -80,7 +80,7 @@
             href="#home"
             class="transition-all duration-200 hover:text-[#0066a1] hover:-translate-y-1"
           >
-            Home
+            Hjem
           </a>
           <a
             href="#tjenester"
@@ -103,21 +103,60 @@
         </nav>
 
         <!-- Mobilmeny-knapp -->
-        <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">
-          ☰
+        <!-- Hamburger-knapp (uendret) -->
+        <button
+          id="menu-btn"
+          class="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          aria-label="Åpne mobilmeny"
+          aria-expanded="false"
+        >
+          <svg
+            id="menu-icon"
+            class="w-8 h-8 text-gray-700"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
         </button>
 
-        <!-- Mobilmeny -->
+        <!-- Overlay -->
+        <div
+          id="overlay"
+          class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"
+          aria-hidden="true"
+        ></div>
+
+        <!-- Mobilmeny midt på skjermen -->
         <div
           id="mobile-menu"
-          class="absolute top-full right-6 mt-2 bg-white shadow-lg rounded-md w-48 py-4 px-6 hidden flex-col space-y-3 text-base font-medium"
+          class="fixed top-1/2 left-1/2 w-96 max-w-[95vw] rounded-xl shadow-lg p-8 space-y-8 transform -translate-x-1/2 -translate-y-1/2 scale-95 opacity-0 pointer-events-none transition-all duration-300 z-50 text-white border border-white/20"
+          aria-hidden="true"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(247, 143, 65, 0.35),
+              rgba(255, 255, 255, 0.2),
+              rgba(0, 102, 161, 0.35)
+            );
+            backdrop-filter: blur(8px);
+          "
         >
-          <a href="#home" class="block py-2 hover:text-[#0066a1]">Hjem</a>
-          <a href="#tjenester" class="block py-2 hover:text-[#0066a1]"
-            >Tjenester</a
-          >
-          <a href="#omoss" class="block py-2 hover:text-[#0066a1]">Om oss</a>
-          <a href="#kontakt" class="block py-2 hover:text-[#0066a1]">Kontakt</a>
+          <nav class="flex flex-col space-y-6 text-xl font-semibold">
+            <a href="#home" class="block hover:text-brandBlue">Hjem</a>
+            <a href="#tjenester" class="block hover:text-brandBlue"
+              >Tjenester</a
+            >
+            <a href="#omoss" class="block hover:text-brandBlue">Om oss</a>
+            <a href="#kontakt" class="block hover:text-brandBlue">Kontakt</a>
+          </nav>
         </div>
       </div>
     </header>
@@ -222,8 +261,8 @@
     </section>
 
     <!-- Hvorfor Jeløy Regnskap -->
-    <section class="bg-gray-50 py-24 px-6 md:px-20" id="hvorfor">
-      <div class="max-w-7xl mx-auto bg-white rounded-xl p-8 md:p-16 shadow-md">
+    <section class="bg-gray-50 py-24 px-6 md:px-40" id="hvorfor">
+      <div class="max-w-8xl mx-auto bg-white rounded-xl p-8 md:p-16 shadow-md">
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <!-- Bilde først på desktop, men sist på mobil -->
           <div class="order-2 md:order-1 flex justify-center">
@@ -402,7 +441,7 @@
     <!-- Om oss -->
     <section
       id="omoss"
-      class="scroll-mt-64 py-20 bg-gray-100 px-6 relative"
+      class="scroll-mt-64 py-20 bg-gray-100 px-6 relative fade-in-up"
       data-aos="fade-up"
     >
       <div class="max-w-3xl mx-auto text-center">
@@ -422,8 +461,10 @@
 
       <!-- Avatar med AOS animasjon og absolutt plassering -->
       <div
-        class="hidden md:block absolute right-0 top-1 transform -translate-y-2/3 translate-x-1/2"
+        class="block md:absolute md:right-0 md:top-1 md:transform md:-translate-y-2/3 md:translate-x-1/2"
         data-aos="fade-left"
+        data-aos-duration="1000"
+        data-aos-easing="ease-out-quart"
       >
         <a
           href="https://www.facebook.com/profile.php?id=61577072792093"

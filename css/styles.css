@@ -17,7 +17,13 @@ html {
 }
 
 .fade-in-up {
-  animation: fadeInUp 0.8s ease-out both;
+  animation: fadeInUp 2s ease-out both;
 }
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
 
 

@@ -1,14 +1,48 @@
 //kebabmenu
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+const overlay = document.getElementById("overlay");
+const body = document.body;
 
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
+function closeMenu() {
+  mobileMenu.classList.remove("opacity-100");
+  mobileMenu.classList.add("opacity-0");
+  mobileMenu.classList.add("pointer-events-none");
 
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
+  overlay.classList.add("hidden");
+
+  body.classList.remove("no-scroll");
+
+  menuBtn.setAttribute("aria-expanded", false);
+  mobileMenu.setAttribute("aria-hidden", true);
+}
+
+menuBtn.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.toggle("opacity-100");
+  mobileMenu.classList.toggle("opacity-0", !isOpen);
+  mobileMenu.classList.toggle("pointer-events-auto", isOpen);
+  mobileMenu.classList.toggle("pointer-events-none", !isOpen);
+
+  overlay.classList.toggle("hidden", !isOpen);
+
+  if (isOpen) {
+    body.classList.add("no-scroll");
+  } else {
+    body.classList.remove("no-scroll");
+  }
+
+  menuBtn.setAttribute("aria-expanded", isOpen);
+  mobileMenu.setAttribute("aria-hidden", !isOpen);
+});
+
+overlay.addEventListener("click", () => {
+  closeMenu();
+});
+
+// Lukk meny når man klikker på et menyvalg
+document.querySelectorAll("#mobile-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    closeMenu();
   });
 });
 
@@ -31,7 +65,7 @@ tailwind.config = {
     }
   }
 
-
+//Styrer hvor raskt innhold lastes 
   document.addEventListener("DOMContentLoaded", () => {
     const positions = [
       { x: 50, y: 10 },
