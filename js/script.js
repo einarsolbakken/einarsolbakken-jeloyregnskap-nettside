@@ -161,6 +161,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// Høyden på headeren, juster om nødvendig
+const headerHeight = document.querySelector('header').offsetHeight;
+
+// Når man klikker på lenker i mobilmenyen
+document.querySelectorAll("#mobile-menu a").forEach(link => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault(); // forhindrer standard scroll først
+
+    closeMenu();
+
+    const targetId = link.getAttribute("href").substring(1); // fjerner '#'
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight - 10; // 10 px ekstra luft under header
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  });
+});
+
+
+const lesMerBtn = document.getElementById("lesMerBtn");
+
+lesMerBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const targetElement = document.getElementById("omoss");
+  if (targetElement) {
+    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - headerHeight - 10; // 10 px ekstra margin
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
+  }
+});
+
+
+
+
+
+
+
+
+
 
   
 
