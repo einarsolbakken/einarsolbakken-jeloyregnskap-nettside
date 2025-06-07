@@ -7,7 +7,8 @@ const body = document.body;
 function closeMenu() {
   mobileMenu.classList.remove("opacity-100");
   mobileMenu.classList.add("opacity-0");
-  mobileMenu.classList.add("pointer-events-none");
+  mobileMenu.classList.add("hidden");
+
 
   overlay.classList.add("hidden");
 
@@ -18,6 +19,7 @@ function closeMenu() {
 }
 
 menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.remove("hidden");
   const isOpen = mobileMenu.classList.toggle("opacity-100");
   mobileMenu.classList.toggle("opacity-0", !isOpen);
   mobileMenu.classList.toggle("pointer-events-auto", isOpen);
@@ -202,6 +204,21 @@ lesMerBtn.addEventListener("click", (event) => {
       behavior: "smooth"
     });
   }
+});
+
+
+const textarea = document.querySelector("textarea[name='message']");
+const nameInput = document.querySelector("input[name='name']");
+const emailInput = document.querySelector("input[name='email']");
+
+[nameInput, emailInput, textarea].forEach((field) => {
+  field.addEventListener("focus", () => {
+    document.documentElement.style.scrollBehavior = "auto";
+  });
+
+  field.addEventListener("blur", () => {
+    document.documentElement.style.scrollBehavior = "";
+  });
 });
 
 
